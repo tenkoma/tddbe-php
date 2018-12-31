@@ -1,0 +1,12 @@
+{
+    "name": "tenkoma/tddbe-php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Koji Tanaka",
+            "email": "tenkoma@gmail.com"
+        }
+    ],
+    "require": {}
+}
