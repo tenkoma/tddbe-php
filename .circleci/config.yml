@@ -7,7 +7,6 @@ jobs:
           CIRCLE_TEST_REPORTS: ~/report
     steps:
       - checkout
-      - run: sudo docker-php-ext-install zip
       - run: sudo composer self-update
       - restore_cache:
           key: composer-v1-{{ checksum "money/composer.lock" }}
@@ -16,7 +15,7 @@ jobs:
           key: composer-v1-{{ checksum "money/composer.lock" }}
           paths:
             - "/home/ubuntu/.composer/cache"
-      - run: money/vendor/bin/phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/money-junit.xml
+      - run: money/vendor/bin/phpunit money/tests --log-junit $CIRCLE_TEST_REPORTS/phpunit/money-junit.xml
 
 workflows:
   version: 2
