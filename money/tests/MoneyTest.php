@@ -6,10 +6,13 @@ namespace Money\Tests;
 use PHPUnit\Framework\TestCase;
 use Money\Money;
 
+/**
+ * @coversDefaultClass \Money\Money
+ */
 class MoneyTest extends TestCase
 {
     /**
-     * @covers \Money\Dollar::times()
+     * @covers ::times()
      */
     public function testMultiplication()
     {
@@ -19,8 +22,7 @@ class MoneyTest extends TestCase
     }
 
     /**
-     * @covers \Money\Dollar::equals()
-     * @covers \Money\Franc::equals()
+     * @covers ::equals()
      */
     public function testEquality()
     {
@@ -30,7 +32,7 @@ class MoneyTest extends TestCase
     }
 
     /**
-     * @covers \Money\Money::currency()
+     * @covers ::currency()
      */
     public function testCurrency()
     {
