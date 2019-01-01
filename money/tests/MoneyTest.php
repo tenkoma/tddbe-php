@@ -8,6 +8,9 @@ use Money\Dollar;
 
 class MoneyTest extends TestCase
 {
+    /**
+     * @covers \Money\Dollar::times()
+     */
     public function testMultiplication()
     {
         $five = new Dollar(5);
@@ -17,6 +20,9 @@ class MoneyTest extends TestCase
         $this->assertSame(15, $product->amount);
     }
 
+    /**
+     * @covers \Money\Dollar::equals()
+     */
     public function testEquality()
     {
         $this->assertTrue((new Dollar(5))->equals(new Dollar(5)));
