@@ -5,20 +5,29 @@ namespace Money;
 
 class Sum implements Expression
 {
-    /** @var Money */
+    /** @var Expression */
     public $augend;
 
-    /** @var Money */
+    /** @var Expression */
     public $addend;
 
     /**
-     * @param Money $augend
-     * @param Money $addend
+     * @param Expression $augend
+     * @param Expression $addend
      */
-    public function __construct(Money $augend, Money $addend)
+    public function __construct(Expression $augend, Expression $addend)
     {
         $this->augend = $augend;
         $this->addend = $addend;
+    }
+
+    /**
+     * @param Expression $addend
+     * @return Expression
+     */
+    public function plus(Expression $addend): Expression
+    {
+        return null;
     }
 
     /**
@@ -28,7 +37,8 @@ class Sum implements Expression
      */
     public function reduce(Bank $bank, string $to): Money
     {
-        $amount = $this->augend->getAmount() + $this->addend->getAmount();
+        $amount = $this->augend->reduce($bank, $to)->getAmount()
+            + $this->addend->reduce($bank, $to)->getAmount();
         return new Money($amount, $to);
     }
 }
