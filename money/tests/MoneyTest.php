@@ -8,14 +8,8 @@ use Money\Sum;
 use PHPUnit\Framework\TestCase;
 use Money\Money;
 
-/**
- * @coversDefaultClass \Money\Money
- */
 class MoneyTest extends TestCase
 {
-    /**
-     * @covers ::times()
-     */
     public function testMultiplication()
     {
         $five = Money::dollar(5);
@@ -23,9 +17,6 @@ class MoneyTest extends TestCase
         $this->assertTrue($five->times(3)->equals(Money::dollar(15)));
     }
 
-    /**
-     * @covers ::equals()
-     */
     public function testEquality()
     {
         $this->assertTrue((Money::dollar(5))->equals(Money::dollar(5)));
@@ -33,9 +24,6 @@ class MoneyTest extends TestCase
         $this->assertFalse((Money::franc(5))->equals(Money::dollar(5)));
     }
 
-    /**
-     * @covers ::currency()
-     */
     public function testCurrency()
     {
         $this->assertSame("USD", Money::dollar(1)->currency());
